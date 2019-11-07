@@ -1,19 +1,14 @@
 #include <iostream>
 #include <map>
-#include <string>
 using namespace std;
-
 int main() {
-    string all;
-    string s;
-    string x;
+    string all, s, x;
     map<string,string> words;
-    while(true){
+    while(getline(cin, all)){
         bool k = false;
-        getline(cin, all);
         if(all.empty()) break;
         for(char i : all){
-            if(!k and i !=' ') s.push_back(i);
+            if(!k and i != ' ') s.push_back(i);
             if(k) x.push_back(i);
             if(i == ' ') k = true;
         }
@@ -22,9 +17,8 @@ int main() {
         x.clear();
     }
     while(cin>>x){
-        if(!words[x].empty()) cout<<words[x];
-        else cout<<"eh";
-        cout<<'\n';
+        if(!words[x].empty()) cout<<words[x]<<'\n';
+        else cout<<"eh\n";
     }
     return 0;
 }
